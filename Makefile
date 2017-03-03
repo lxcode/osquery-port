@@ -19,6 +19,7 @@ BUILD_DEPENDS=	snappy>0:archivers/snappy \
 		yara>0:security/yara \
 		glog>0:devel/glog \
 		aws-sdk-cpp>0:devel/aws-sdk-cpp \
+		linenoise-ng>0:devel/linenoise-ng \
 		cpp-netlib>0:devel/cpp-netlib \
 		doxygen:devel/doxygen \
 		${PYTHON_PKGNAMEPREFIX}MarkupSafe>0:textproc/py-MarkupSafe \
