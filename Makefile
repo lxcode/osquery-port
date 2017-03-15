@@ -62,5 +62,6 @@ do-install:
 		${STAGEDIR}${PREFIX}/etc/osquery.conf.sample
 
 	${MKDIR} ${STAGEDIR}/var/db/osquery
+	${MKDIR} ${STAGEDIR}/var/log/osquery
 
 .include <bsd.port.mk>
