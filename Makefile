@@ -30,7 +30,7 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libcppnetlib-uri.so:devel/cppnetlib \
 		libsnappy.so:archivers/snappy \
 		libyara.so:security/yara \
-		libaws-cpp-sdk-core.so::devel/aws-sdk-cpp \
+		libaws-cpp-sdk-core.so:devel/aws-sdk-cpp \
 		linenoise.a:devel/linenoise-ng
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
