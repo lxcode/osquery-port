@@ -11,8 +11,7 @@ COMMENT=	SQL powered OS instrumentation, monitoring, and analytics
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	
-		thrift>0:devel/thrift \
+BUILD_DEPENDS=	thrift>0:devel/thrift \
 		bash>0:shells/bash \
 		doxygen:devel/doxygen \
 		${PYTHON_PKGNAMEPREFIX}MarkupSafe>0:textproc/py-MarkupSafe \
