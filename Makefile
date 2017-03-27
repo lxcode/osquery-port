@@ -12,15 +12,12 @@ LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	snappy>0:archivers/snappy \
-		rocksdb>0:databases/rocksdb \
 		thrift>0:devel/thrift \
 		thrift-cpp>0:devel/thrift-cpp \
 		bash>0:shells/bash \
 		yara>0:security/yara \
 		glog>0:devel/glog \
 		aws-sdk-cpp>0:devel/aws-sdk-cpp \
-		linenoise-ng>0:devel/linenoise-ng \
-		cpp-netlib>0:devel/cpp-netlib \
 		doxygen:devel/doxygen \
 		${PYTHON_PKGNAMEPREFIX}MarkupSafe>0:textproc/py-MarkupSafe \
 		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil \
@@ -32,7 +29,16 @@ LIB_DEPENDS=	libboost_regex.so:devel/boost-libs \
 		libgflags.so:devel/gflags \
 		libicuuc.so:devel/icu \
 		libtsk.so:sysutils/sleuthkit \
-		libaugeas.so:textproc/augeas
+		libaugeas.so:textproc/augeas \
+		libcppnetlib-uri.so:devel/cppnetlib \
+		linenoisea:devel/linenoise-ng
+RUN_DEPENDS=	snappy>0:archivers/snappy \
+		thrift>0:devel/thrift \
+		thrift-cpp>0:devel/thrift-cpp \
+		bash>0:shells/bash \
+		yara>0:security/yara \
+		glog>0:devel/glog \
+		aws-sdk-cpp>0:devel/aws-sdk-cpp
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
