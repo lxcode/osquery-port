@@ -13,6 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	thrift>0:devel/thrift \
 		bash>0:shells/bash \
+		linenoise-ng>0:devel/linenoise-ng \
 		doxygen:devel/doxygen \
 		${PYTHON_PKGNAMEPREFIX}MarkupSafe>0:textproc/py-MarkupSafe \
 		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil \
@@ -23,15 +24,15 @@ BUILD_DEPENDS=	thrift>0:devel/thrift \
 LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libboost_regex.so:devel/boost-libs \
 		libgflags.so:devel/gflags \
-		libglog:devel/glog \
+		libglog.so:devel/glog \
 		libicuuc.so:devel/icu \
 		libthrift.so:devel/thrift-cpp \
 		libtsk.so:sysutils/sleuthkit \
-		libcppnetlib-uri.so:devel/cppnetlib \
-		libsnappy.so:archivers/snappy \
+		libcppnetlib-uri.so:devel/cpp-netlib \
+		librocksdb-lite.so:databases/rocksdb-lite \
 		libyara.so:security/yara \
-		libaws-cpp-sdk-core.so:devel/aws-sdk-cpp \
-		linenoise.a:devel/linenoise-ng
+		liblldpctl.so:net-mgmt/lldpd \
+		libaws-cpp-sdk-core.so:devel/aws-sdk-cpp
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
