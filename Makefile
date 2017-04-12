@@ -2,7 +2,7 @@
 # $FreeBSD: head/sysutils/osquery/Makefile 434689 2017-02-23 22:37:07Z zi $
 
 PORTNAME=	osquery
-PORTVERSION=	2.3.4
+PORTVERSION=	2.4.0
 CATEGORIES=	sysutils
 
 MAINTAINER=	zi@FreeBSD.org
@@ -14,13 +14,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 BUILD_DEPENDS=	thrift>0:devel/thrift \
 		bash>0:shells/bash \
 		linenoise-ng>0:devel/linenoise-ng \
-		doxygen:devel/doxygen \
-		${PYTHON_PKGNAMEPREFIX}MarkupSafe>0:textproc/py-MarkupSafe \
-		${PYTHON_PKGNAMEPREFIX}psutil>0:sysutils/py-psutil \
-		${PYTHON_PKGNAMEPREFIX}pexpect>0:misc/py-pexpect \
-		${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2  \
-		${PYTHON_PKGNAMEPREFIX}thrift>0:devel/py-thrift \
-		${PYTHON_PKGNAMEPREFIX}pip>0:devel/py-pip
+		asio>0:net/asio \
+		${PYTHON_PKGNAMEPREFIX}Jinja2>0:devel/py-Jinja2
 LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libboost_regex.so:devel/boost-libs \
 		libgflags.so:devel/gflags \
@@ -31,8 +26,7 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libcppnetlib-uri.so:devel/cpp-netlib \
 		librocksdb-lite.so:databases/rocksdb-lite \
 		libyara.so:security/yara \
-		liblldpctl.so:net-mgmt/lldpd \
-		libaws-cpp-sdk-core.so:devel/aws-sdk-cpp
+		liblldpctl.so:net-mgmt/lldpd
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
@@ -49,9 +43,9 @@ MAKE_JOBS_UNSAFE=	yes
 post-patch:
 	${REINPLACE_CMD} -e 's|/var/osquery/|/var/db/osquery/|g' \
 		${WRKSRC}/tools/deployment/osquery.example.conf
-	${REINPLACE_CMD} -e 's|python |${PYTHON_CMD} |g' \
-		${WRKSRC}/CMake/CMakeLibs.cmake \
-		${WRKSRC}/CMakeLists.txt
+	${REINPLACE_CMD} -e 's|python|${PYTHON_CMD}|g' \
+		${WRKSRC}/CMakeLists.txt \
+		${WRKSRC}/tools/get_platform.py
 
 do-install:
 	${INSTALL_PROGRAM} ${BLDDIR}/osqueryi ${STAGEDIR}${PREFIX}/bin
