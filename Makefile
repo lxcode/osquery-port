@@ -22,11 +22,7 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libglog.so:devel/glog \
 		libicuuc.so:devel/icu \
 		libthrift.so:devel/thrift-cpp \
-		libtsk.so:sysutils/sleuthkit \
-		libcppnetlib-uri.so:devel/cpp-netlib \
-		librocksdb-lite.so:databases/rocksdb-lite \
-		libyara.so:security/yara \
-		liblldpctl.so:net-mgmt/lldpd
+		libcppnetlib-uri.so:devel/cpp-netlib
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
@@ -39,6 +35,29 @@ GH_ACCOUNT=	facebook ${PORTNAME}:tp
 GH_PROJECT=	third-party:tp
 GH_SUBDIR=	third-party:tp
 MAKE_JOBS_UNSAFE=	yes
+
+# Some options for things that bring in many dependencies
+OPTIONS_DEFINE=	TSK AWS YARA LLDPD ROCKSDB
+
+TSK_DESC=	Build with sleuthkit support
+TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
+TSK_CMAKE_BOOL=		WITH_TSK
+
+AWS_DESC=	Support whatever this is for
+AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so::devel/aws-sdk-cpp
+AWS_CMAKE_BOOL=		WITH_AWS_SDK
+
+YARA_DESC=	Build with YARA malware identification support
+YARA_LIB_DEPENDS=	libyara.so:security/yara
+YARA_CMAKE_BOOL=	WITH_YARA
+
+LLDPD_DESC=	Support Link Layer Discovery Protocol
+LLDPD_LIB_DEPENDS=	liblldpctl.so:net-mgmt/lldpd
+LLDPD_CMAKE_BOOL=	WITH_LLDPD
+
+ROCKSDB_DESC=	Use RocksDB for storage instead of memory
+ROCKSDB_LIB_DEPENDS=	librocksdb-lite.so:databases/rocksdb-lite
+LLDPD_CMAKE_BOOL=	WITH_ROCKSDB
 
 .include <bsd.port.pre.mk>
 
