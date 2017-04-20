@@ -1,5 +1,5 @@
 # Created by: Ryan Steinmetz <zi@FreeBSD.org>
-# $FreeBSD: head/sysutils/osquery/Makefile 434689 2017-02-23 22:37:07Z zi $
+# $FreeBSD: head/sysutils/osquery/Makefile 438896 2017-04-19 17:17:33Z lx $
 
 PORTNAME=	osquery
 PORTVERSION=	2.4.0
@@ -40,6 +40,14 @@ GH_PROJECT=	third-party:tp
 GH_SUBDIR=	third-party:tp
 MAKE_JOBS_UNSAFE=	yes
 
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 1100000
+BUILD_DEPENDS+=	clang38:devel/llvm38
+CC=	clang38
+CXX=	clang++38
+.endif
+
 post-patch:
 	${REINPLACE_CMD} -e 's|/var/osquery/|/var/db/osquery/|g' \
 		${WRKSRC}/tools/deployment/osquery.example.conf
@@ -58,4 +66,4 @@ do-install:
 	${MKDIR} ${STAGEDIR}/var/db/osquery
 	${MKDIR} ${STAGEDIR}/var/log/osquery
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
