@@ -57,7 +57,7 @@ LLDPD_CMAKE_BOOL=	WITH_LLDPD
 
 ROCKSDB_DESC=	Use RocksDB for storage instead of memory
 ROCKSDB_LIB_DEPENDS=	librocksdb-lite.so:databases/rocksdb-lite
-LLDPD_CMAKE_BOOL=	WITH_ROCKSDB
+ROCKSDB_CMAKE_BOOL=	WITH_ROCKSDB
 
 .include <bsd.port.pre.mk>
 
