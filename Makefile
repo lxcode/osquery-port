@@ -41,23 +41,23 @@ OPTIONS_DEFINE=	TSK AWS YARA LLDPD ROCKSDB
 
 TSK_DESC=	Build with sleuthkit support
 TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
-TSK_CMAKE_BOOL=		WITH_TSK
+TSK_CONFIGURE_ENV=		WITH_TSK=1
 
 AWS_DESC=	Support whatever this is for
 AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so::devel/aws-sdk-cpp
-AWS_CMAKE_BOOL=		WITH_AWS_SDK
+AWS_CONFIGURE_ENV=		WITH_AWS_SDK=1
 
 YARA_DESC=	Build with YARA malware identification support
 YARA_LIB_DEPENDS=	libyara.so:security/yara
-YARA_CMAKE_BOOL=	WITH_YARA
+YARA_CONFIGURE_ENV=	WITH_YARA=1
 
 LLDPD_DESC=	Support Link Layer Discovery Protocol
 LLDPD_LIB_DEPENDS=	liblldpctl.so:net-mgmt/lldpd
-LLDPD_CMAKE_BOOL=	WITH_LLDPD
+LLDPD_CONFIGURE_ENV=	WITH_LLDPD=1
 
 ROCKSDB_DESC=	Use RocksDB for storage instead of memory
 ROCKSDB_LIB_DEPENDS=	librocksdb-lite.so:databases/rocksdb-lite
-ROCKSDB_CMAKE_BOOL=	WITH_ROCKSDB
+ROCKSDB_CONFIGURE_ENV=	WITH_ROCKSDB=1
 
 .include <bsd.port.pre.mk>
 
