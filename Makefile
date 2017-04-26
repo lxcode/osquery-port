@@ -23,6 +23,7 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libicuuc.so:devel/icu \
 		libthrift.so:devel/thrift-cpp \
 		libcppnetlib-uri.so:devel/cpp-netlib
+RUN_DEPENDS=	ca_root_nss>0:security/ca_root_nss
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
