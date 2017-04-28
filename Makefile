@@ -88,6 +88,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/tools/deployment/osquery.example.conf \
 		${STAGEDIR}${PREFIX}/etc/osquery.conf.sample
 
+	${TOUCH} ${STAGEDIR}${PREFIX}/etc/osquery.flags
 	${MKDIR} ${STAGEDIR}/var/db/osquery
 	${MKDIR} ${STAGEDIR}/var/log/osquery
 
