@@ -39,6 +39,7 @@ MAKE_JOBS_UNSAFE=	yes
 
 # Some options for things that bring in many dependencies
 OPTIONS_DEFINE=	TSK AWS YARA LLDPD ROCKSDB
+OPTIONS_DEFAULT=	ROCKSDB
 
 TSK_DESC=	Build with sleuthkit support
 TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
