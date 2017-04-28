@@ -46,7 +46,7 @@ TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
 TSK_CONFIGURE_ENV_OFF=		SKIP_TSK=1
 
 AWS_DESC=	Support logging to AWS Kinesis
-AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so::devel/aws-sdk-cpp
+AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so:devel/aws-sdk-cpp
 AWS_CONFIGURE_ENV_OFF=		SKIP_AWS=1
 
 YARA_DESC=	Build with YARA malware identification support
