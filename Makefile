@@ -21,6 +21,7 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libgflags.so:devel/gflags \
 		libglog.so:devel/glog \
 		libicuuc.so:devel/icu \
+		librocksdb-lite.so:databases/rocksdb-lite \
 		libthrift.so:devel/thrift-cpp \
 		libcppnetlib-uri.so:devel/cpp-netlib
 RUN_DEPENDS=	ca_root_nss>0:security/ca_root_nss
@@ -38,8 +39,7 @@ GH_SUBDIR=	third-party:tp
 MAKE_JOBS_UNSAFE=	yes
 
 # Some options for things that bring in many dependencies
-OPTIONS_DEFINE=	TSK AWS YARA LLDPD ROCKSDB
-OPTIONS_DEFAULT=	ROCKSDB
+OPTIONS_DEFINE=	TSK AWS YARA LLDPD
 
 TSK_DESC=	Build with sleuthkit support
 TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
@@ -56,10 +56,6 @@ YARA_CONFIGURE_ENV=	WITH_YARA=1
 LLDPD_DESC=	Support Link Layer Discovery Protocol
 LLDPD_LIB_DEPENDS=	liblldpctl.so:net-mgmt/lldpd
 LLDPD_CONFIGURE_ENV=	WITH_LLDPD=1
-
-ROCKSDB_DESC=	Use RocksDB for storage instead of memory
-ROCKSDB_LIB_DEPENDS=	librocksdb-lite.so:databases/rocksdb-lite
-ROCKSDB_CONFIGURE_ENV=	WITH_ROCKSDB=1
 
 .include <bsd.port.pre.mk>
 
