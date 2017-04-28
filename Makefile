@@ -75,7 +75,7 @@ post-patch:
 	${REINPLACE_CMD} -e 's|/etc/osquery/yara/|/var/db/osquery/yara/|g' \
 		${WRKSRC}/osquery/tables/other/yara.cpp \
 		${WRKSRC}/osquery/tables/other/yara_utils.cpp \
-		${WRKSRC}/osquery/tables/yara.table
+		${WRKSRC}/specs/posix/yara.table
 	${REINPLACE_CMD} -e 's|python|${PYTHON_CMD}|g' \
 		${WRKSRC}/CMakeLists.txt \
 		${WRKSRC}/tools/get_platform.py
