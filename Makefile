@@ -43,19 +43,19 @@ OPTIONS_DEFINE=	TSK AWS YARA LLDPD
 
 TSK_DESC=	Build with sleuthkit support
 TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
-TSK_CONFIGURE_ENV=		WITH_TSK=1
+TSK_CONFIGURE_ENV_OFF=		SKIP_TSK=1
 
 AWS_DESC=	Support logging to AWS Kinesis
 AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so::devel/aws-sdk-cpp
-AWS_CONFIGURE_ENV=		WITH_AWS_SDK=1
+AWS_CONFIGURE_ENV_OFF=		SKIP_AWS=1
 
 YARA_DESC=	Build with YARA malware identification support
 YARA_LIB_DEPENDS=	libyara.so:security/yara
-YARA_CONFIGURE_ENV=	WITH_YARA=1
+YARA_CONFIGURE_ENV_OFF=	SKIP_YARA=1
 
 LLDPD_DESC=	Support Link Layer Discovery Protocol
 LLDPD_LIB_DEPENDS=	liblldpctl.so:net-mgmt/lldpd
-LLDPD_CONFIGURE_ENV=	WITH_LLDPD=1
+LLDPD_CONFIGURE_ENV_OFF=	SKIP_LLDPD=1
 
 .include <bsd.port.pre.mk>
 
