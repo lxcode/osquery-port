@@ -69,9 +69,9 @@ post-patch:
 	${REINPLACE_CMD} -e 's|/var/osquery/|/var/db/osquery/|g' \
 		${WRKSRC}/tools/deployment/osquery.example.conf
 	${REINPLACE_CMD} -e 's|/etc/osquery/yara/|/var/db/osquery/yara/|g' \
-		${WRKSRC}/osquery/tables/other/yara.cpp \
-		${WRKSRC}/osquery/tables/other/yara_utils.cpp \
-		${WRKSRC}/specs/posix/yara.table
+		${WRKSRC}/osquery/tables/yara/yara.cpp \
+		${WRKSRC}/osquery/tables/yara/yara_utils.cpp \
+		${WRKSRC}/specs/yara/yara.table
 	${REINPLACE_CMD} -e 's|python|${PYTHON_CMD}|g' \
 		${WRKSRC}/CMakeLists.txt \
 		${WRKSRC}/tools/get_platform.py
