@@ -45,7 +45,7 @@ TSK_DESC=	Build with sleuthkit support
 TSK_LIB_DEPENDS=	libtsk.so:sysutils/sleuthkit
 TSK_CONFIGURE_ENV=		WITH_TSK=1
 
-AWS_DESC=	Support whatever this is for
+AWS_DESC=	Support logging to AWS Kinesis
 AWS_LIB_DEPENDS=	libaws-cpp-sdk-core.so::devel/aws-sdk-cpp
 AWS_CONFIGURE_ENV=		WITH_AWS_SDK=1
 
