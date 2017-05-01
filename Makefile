@@ -2,7 +2,7 @@
 # $FreeBSD: head/sysutils/osquery/Makefile 438896 2017-04-19 17:17:33Z lx $
 
 PORTNAME=	osquery
-PORTVERSION=	2.4.0
+PORTVERSION=	2.4.3
 CATEGORIES=	sysutils
 
 MAINTAINER=	zi@FreeBSD.org
