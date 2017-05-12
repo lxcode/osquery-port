@@ -2,7 +2,7 @@
 # $FreeBSD: head/sysutils/osquery/Makefile 438896 2017-04-19 17:17:33Z lx $
 
 PORTNAME=	osquery
-PORTVERSION=	2.4.3
+PORTVERSION=	2.4.4
 CATEGORIES=	sysutils
 
 MAINTAINER=	zi@FreeBSD.org
@@ -28,7 +28,8 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libcppnetlib-uri.so:devel/cpp-netlib
 RUN_DEPENDS=	ca_root_nss>0:security/ca_root_nss
 
-USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib libarchive ssl
+USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib \
+	libarchive ssl
 USE_GNOME=	libxml2
 CONFIGURE_ENV+=	OSQUERY_BUILD_VERSION="${PORTVERSION}" HOME="${WRKDIR}" \
 		SKIP_TESTS="yes" CC="${CC}" CXX="${CXX}"
