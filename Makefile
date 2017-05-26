@@ -2,7 +2,7 @@
 # $FreeBSD: head/sysutils/osquery/Makefile 438896 2017-04-19 17:17:33Z lx $
 
 PORTNAME=	osquery
-PORTVERSION=	2.4.4
+PORTVERSION=	2.4.5
 CATEGORIES=	sysutils
 
 MAINTAINER=	zi@FreeBSD.org
@@ -40,7 +40,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	facebook ${PORTNAME}:tp
 GH_PROJECT=	third-party:tp
 GH_SUBDIR=	third-party:tp
-#MAKE_JOBS_UNSAFE=	yes
 
 # Some options for things that bring in many dependencies
 OPTIONS_DEFINE=	TSK AWS YARA LLDPD
