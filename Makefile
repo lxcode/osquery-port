@@ -86,7 +86,8 @@ do-install:
 		${STAGEDIR}${PREFIX}/etc/osquery.conf.sample
 
 	${MKDIR} ${STAGEDIR}/var/db/osquery ${STAGEDIR}/var/log/osquery
-	# The flags file must exist, even if empty.
+	# The flags file must exist, even if empty. Using @sample
+	# prevents a populated flags file from being nuked on upgrade.
 	${TOUCH} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample \
 		${STAGEDIR}${PREFIX}/etc/osquery.flags
 
