@@ -25,7 +25,8 @@ LIB_DEPENDS=	libaugeas.so:textproc/augeas \
 		libsnappy.so:archivers/snappy \
 		librocksdb-lite.so:databases/rocksdb-lite \
 		libthrift.so:devel/thrift-cpp \
-		libcppnetlib-uri.so:devel/cpp-netlib
+		libcppnetlib-uri.so:devel/cpp-netlib \
+		libzstd.so:archivers/zstd
 RUN_DEPENDS=	ca_root_nss>0:security/ca_root_nss
 
 USES=		cmake:outsource gmake libtool python:build compiler:c++11-lib \
