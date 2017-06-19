@@ -2,7 +2,7 @@
 # $FreeBSD: head/sysutils/osquery/Makefile 442949 2017-06-08 19:04:48Z zi $
 
 PORTNAME=	osquery
-PORTVERSION=	2.4.6
+PORTVERSION=	2.5.1
 CATEGORIES=	sysutils
 
 MAINTAINER=	zi@FreeBSD.org
@@ -41,7 +41,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	facebook ${PORTNAME}:tp
 GH_PROJECT=	third-party:tp
 GH_SUBDIR=	third-party:tp
-GH_TAGNAME=	2.4.5:tp
+GH_TAGNAME=	${PORTVERSION}:tp
 
 # Some options for things that bring in many dependencies
 OPTIONS_DEFINE=	TSK AWS YARA LLDPD
@@ -86,9 +86,8 @@ do-install:
 		${STAGEDIR}${PREFIX}/etc/osquery.conf.sample
 
 	${MKDIR} ${STAGEDIR}/var/db/osquery ${STAGEDIR}/var/log/osquery
-# The flags file must exist, even if empty.
-	${TOUCH} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample
-	${CP} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample \
+	# The flags file must exist, even if empty.
+	${TOUCH} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample \
 		${STAGEDIR}${PREFIX}/etc/osquery.flags
 
 .include <bsd.port.post.mk>
