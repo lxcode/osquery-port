@@ -88,8 +88,6 @@ do-install:
 	${MKDIR} ${STAGEDIR}/var/db/osquery ${STAGEDIR}/var/log/osquery
 # The flags file must exist, even if empty.
 	${TOUCH} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample
-.if !exists(${PREFIX}/etc/osquery.flags)
 	${CP} ${STAGEDIR}${PREFIX}/etc/osquery.flags.sample ${STAGEDIR}${PREFIX}/etc/osquery.flags
-.endif
 
 .include <bsd.port.post.mk>
